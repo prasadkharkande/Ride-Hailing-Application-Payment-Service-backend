@@ -1,0 +1,12 @@
+CREATE DATABASE IF NOT EXISTS payment_service_db;
+USE payment_service_db;
+
+CREATE TABLE IF NOT EXISTS rhfd_payments (
+    payment_id INT PRIMARY KEY AUTO_INCREMENT,
+    trip_id INT NOT NULL,
+    amount DECIMAL(10,2) NOT NULL,
+    method VARCHAR(20) NOT NULL DEFAULT 'CASH',
+    status VARCHAR(20) NOT NULL DEFAULT 'PENDING',
+    reference VARCHAR(50) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
